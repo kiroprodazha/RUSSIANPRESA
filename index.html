@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>А.А. Блок. Стихи о Прекрасной Даме — Анализ стихотворения</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+SC:wght@400;500;600;700&family=Marck+Script&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Фоновые декоративные слои -->
+    <div class="bg-gradient"></div>
+    <div class="bg-stars" id="bgStars"></div>
+    <canvas id="particleCanvas"></canvas>
+    <div class="bg-vignette"></div>
+
+    <!-- Прогресс-бар -->
+    <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Счётчик слайдов -->
+    <div class="slide-counter">
+        <span id="currentSlide">01</span>
+        <span class="counter-divider">/</span>
+        <span id="totalSlides">10</span>
+    </div>
+
+    <!-- Боковая навигация (точки) -->
+    <nav class="dots-nav" id="dotsNav" aria-label="Навигация по слайдам"></nav>
+
+    <!-- Стрелки навигации -->
+    <button class="nav-arrow nav-prev" id="navPrev" aria-label="Предыдущий слайд">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 18l-6-6 6-6" />
+        </svg>
+    </button>
+    <button class="nav-arrow nav-next" id="navNext" aria-label="Следующий слайд">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 18l6-6-6-6" />
+        </svg>
+    </button>
+
+    <!-- Подсказка по управлению -->
+    <div class="hint" id="hint">
+        <kbd>←</kbd> <kbd>→</kbd> <span>навигация</span>
+        <span class="hint-divider">·</span>
+        <kbd>Space</kbd> <span>далее</span>
+        <span class="hint-divider">·</span>
+        <kbd>F</kbd> <span>полный экран</span>
+    </div>
+
+    <!-- Контейнер слайдов -->
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== СЛАЙД 1 — ТИТУЛЬНЫЙ ==================== -->
+        <section class="slide slide-title active" data-slide="1">
+            <div class="slide-inner">
+                <div class="title-ornament top">
+                    <svg viewBox="0 0 200 30" preserveAspectRatio="none">
+                        <path d="M0,15 L80,15 M120,15 L200,15" stroke="currentColor" stroke-width="0.5" fill="none"/>
+                        <circle cx="100" cy="15" r="3" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                        <circle cx="100" cy="15" r="1" fill="currentColor"/>
+                    </svg>
+                </div>
+
+                <p class="title-overline">Анализ стихотворения · Серебряный век</p>
+
+                <h1 class="title-main">
+                    <span class="title-line title-line-1">Стихи</span>
+                    <span class="title-line title-line-2">о&nbsp;Прекрасной</span>
+                    <span class="title-line title-line-3">Даме</span>
+                </h1>
+
+                <div class="title-author">
+                    <span class="author-initials">А.&nbsp;А.</span>
+                    <span class="author-surname">Блок</span>
+                </div>
+
+                <p class="title-quote">
+                    «Предчувствую Тебя. Года проходят мимо —<br/>
+                    Всё в облике одном предчувствую Тебя…»
+                </p>
+
+                <div class="title-ornament bottom">
+                    <svg viewBox="0 0 200 30" preserveAspectRatio="none">
+                        <path d="M0,15 L80,15 M120,15 L200,15" stroke="currentColor" stroke-width="0.5" fill="none"/>
+                        <circle cx="100" cy="15" r="3" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                        <circle cx="100" cy="15" r="1" fill="currentColor"/>
+                    </svg>
+                </div>
+
+                <p class="title-meta">Анализ стихотворения «Вхожу я в тёмные храмы…» (1902)</p>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 2 — О ЦИКЛЕ ==================== -->
+        <section class="slide slide-context" data-slide="2">
+            <div class="slide-inner two-col">
+                <header class="slide-header">
+                    <span class="slide-number">02</span>
+                    <h2 class="slide-title">О&nbsp;цикле</h2>
+                    <span class="slide-subtitle">контекст и&nbsp;муза</span>
+                </header>
+
+                <div class="context-grid">
+                    <article class="context-card">
+                        <div class="card-icon">✦</div>
+                        <h3>Цикл «Стихи о&nbsp;Прекрасной Даме»</h3>
+                        <p>
+                            Создавался в&nbsp;<strong>1901—1902 годах</strong>. Включён в&nbsp;первый сборник Блока (1904).
+                            Это дебют поэта-символиста и&nbsp;программное произведение русского
+                            <em>младосимволизма</em>.
+                        </p>
+                    </article>
+
+                    <article class="context-card">
+                        <div class="card-icon">❀</div>
+                        <h3>Любовь Менделеева</h3>
+                        <p>
+                            Прообразом Прекрасной Дамы стала <strong>Любовь Дмитриевна Менделеева</strong>&nbsp;—
+                            будущая жена поэта, дочь великого химика. Земная любовь преображается у&nbsp;Блока
+                            в&nbsp;мистическое поклонение.
+                        </p>
+                    </article>
+
+                    <article class="context-card">
+                        <div class="card-icon">☥</div>
+                        <h3>Философия Вл.&nbsp;Соловьёва</h3>
+                        <p>
+                            В&nbsp;основе цикла&nbsp;— учение о&nbsp;<strong>Душе Мира</strong>
+                            и&nbsp;<strong>Вечной Женственности</strong> (<em>Sophia</em>). Возлюбленная&nbsp;—
+                            земное воплощение небесного начала, ведущего человека к&nbsp;истине.
+                        </p>
+                    </article>
+
+                    <article class="context-card">
+                        <div class="card-icon">✧</div>
+                        <h3>Поэтика символизма</h3>
+                        <p>
+                            Туман, сумрак, мерцание свеч, далёкие зори&nbsp;— знаки иного мира.
+                            Любая деталь&nbsp;— <strong>символ</strong>, намёк, отблеск трансцендентного.
+                            Слово звучит как молитва.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 3 — ТЕКСТ СТИХОТВОРЕНИЯ ==================== -->
+        <section class="slide slide-poem" data-slide="3">
+            <div class="slide-inner">
+                <header class="slide-header centered">
+                    <span class="slide-number">03</span>
+                    <h2 class="slide-title">Вхожу я&nbsp;в&nbsp;тёмные храмы…</h2>
+                    <span class="slide-subtitle">А.&nbsp;Блок · 25&nbsp;октября 1902</span>
+                </header>
+
+                <div class="poem-frame">
+                    <div class="poem-corner tl"></div>
+                    <div class="poem-corner tr"></div>
+                    <div class="poem-corner bl"></div>
+                    <div class="poem-corner br"></div>
+
+                    <div class="poem-text">
+                        <div class="stanza" data-stanza="1">
+                            <p class="poem-line">Вхожу я&nbsp;в&nbsp;тёмные храмы,</p>
+                            <p class="poem-line">Совершаю бедный обряд.</p>
+                            <p class="poem-line">Там жду я&nbsp;Прекрасной Дамы</p>
+                            <p class="poem-line">В&nbsp;мерцаньи красных лампад.</p>
+                        </div>
+
+                        <div class="stanza" data-stanza="2">
+                            <p class="poem-line">В&nbsp;тени у&nbsp;высокой колонны</p>
+                            <p class="poem-line">Дрожу от&nbsp;скрипа дверей.</p>
+                            <p class="poem-line">А&nbsp;в&nbsp;лицо мне глядит, озарённый,</p>
+                            <p class="poem-line">Только образ, лишь сон о&nbsp;Ней.</p>
+                        </div>
+
+                        <div class="stanza" data-stanza="3">
+                            <p class="poem-line">О, я&nbsp;привык к&nbsp;этим ризам</p>
+                            <p class="poem-line">Величавой Вечной Жены!</p>
+                            <p class="poem-line">Высоко бегут по&nbsp;карнизам</p>
+                            <p class="poem-line">Улыбки, сказки и&nbsp;сны.</p>
+                        </div>
+
+                        <div class="stanza" data-stanza="4">
+                            <p class="poem-line">О, Святая, как&nbsp;ласковы свечи,</p>
+                            <p class="poem-line">Как&nbsp;отрадны Твои черты!</p>
+                            <p class="poem-line">Мне не&nbsp;слышны ни&nbsp;вздохи, ни&nbsp;речи,</p>
+                            <p class="poem-line">Но&nbsp;я&nbsp;верю: Милая&nbsp;— Ты.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="poem-meta">4&nbsp;строфы · 16&nbsp;строк · перекрёстная рифма (ABAB) · трёхстопный анапест</p>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 4 — ИДЕЯ (ВСТУПЛЕНИЕ) ==================== -->
+        <section class="slide slide-idea" data-slide="4">
+            <div class="slide-inner">
+                <header class="slide-header">
+                    <span class="slide-number">04</span>
+                    <h2 class="slide-title">Идея произведения</h2>
+                    <span class="slide-subtitle">вступление к&nbsp;анализу</span>
+                </header>
+
+                <div class="idea-block">
+                    <div class="idea-quote-mark">«</div>
+                    <p class="idea-thesis">
+                        Любовь к&nbsp;Прекрасной Даме&nbsp;— это
+                        <span class="accent">священное мистическое чувство</span>,
+                        граничащее с&nbsp;<span class="accent">религиозным служением идеалу</span>
+                        Вечной Женственности; земная встреча с&nbsp;возлюбленной превращается
+                        в&nbsp;<span class="accent">откровение</span> и&nbsp;<span class="accent">молитву</span>.
+                    </p>
+                    <div class="idea-quote-mark closing">»</div>
+                </div>
+
+                <div class="idea-meta-grid">
+                    <div class="meta-item">
+                        <span class="meta-label">Жанр</span>
+                        <span class="meta-value">философская лирика</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Направление</span>
+                        <span class="meta-value">символизм</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Тема</span>
+                        <span class="meta-value">любовь как&nbsp;богослужение</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Лирический герой</span>
+                        <span class="meta-value">рыцарь, инок, Поэт</span>
+                    </div>
+                </div>
+
+                <p class="idea-bridge">
+                    Доказать этот тезис помогают <strong>три ключевых наблюдения</strong>,
+                    к&nbsp;которым мы&nbsp;переходим&nbsp;→
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 5 — АРГУМЕНТ 1 ==================== -->
+        <section class="slide slide-argument" data-slide="5">
+            <div class="slide-inner">
+                <header class="slide-header">
+                    <span class="slide-number">05</span>
+                    <span class="argument-tag">Аргумент&nbsp;I</span>
+                    <h2 class="slide-title">Сакрализация любви</h2>
+                    <span class="slide-subtitle">религиозная лексика превращает чувство в&nbsp;богослужение</span>
+                </header>
+
+                <div class="argument-body">
+                    <div class="argument-thesis">
+                        <p>
+                            Всё стихотворение построено на&nbsp;<strong>храмовой образности</strong>.
+                            Лирический герой не&nbsp;на&nbsp;свидании&nbsp;— он&nbsp;на&nbsp;<em>службе</em>:
+                            ждёт явления возлюбленной, как&nbsp;верующий ждёт явления святого.
+                        </p>
+                    </div>
+
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <div class="example-quote">«Вхожу я&nbsp;в&nbsp;тёмные храмы, / Совершаю бедный обряд»</div>
+                            <div class="example-analysis">
+                                <span class="device">религиозная лексика</span>
+                                Слова <em>храм, обряд, лампады</em> с&nbsp;первой строки задают
+                                сакральный регистр. Любовное переживание подменяется ритуалом.
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-quote">«О, я&nbsp;привык к&nbsp;этим ризам / Величавой Вечной Жены!»</div>
+                            <div class="example-analysis">
+                                <span class="device">метафора · прописная буква</span>
+                                <em>Ризы</em>&nbsp;— одеяние священника или иконы. Возлюбленная
+                                становится иконой, а&nbsp;её&nbsp;имя пишется
+                                с&nbsp;большой буквы&nbsp;— как&nbsp;имя Бога.
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-quote">«О, Святая, как&nbsp;ласковы свечи…»</div>
+                            <div class="example-analysis">
+                                <span class="device">обращение · эпитет</span>
+                                Прямое обращение <em>«Святая»</em>&nbsp;— кульминация
+                                обожествления. Свечи <em>«ласковы»</em>&nbsp;— олицетворение,
+                                переносящее тепло возлюбленной на&nbsp;храмовое пространство.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 6 — АРГУМЕНТ 2 ==================== -->
+        <section class="slide slide-argument" data-slide="6">
+            <div class="slide-inner">
+                <header class="slide-header">
+                    <span class="slide-number">06</span>
+                    <span class="argument-tag">Аргумент&nbsp;II</span>
+                    <h2 class="slide-title">Символ Вечной&nbsp;Женственности</h2>
+                    <span class="slide-subtitle">героиня&nbsp;— не&nbsp;женщина, а&nbsp;надмирный идеал</span>
+                </header>
+
+                <div class="argument-body">
+                    <div class="argument-thesis">
+                        <p>
+                            Прекрасная Дама лишена конкретных черт. Это <strong>символ</strong>,
+                            почти неуловимое присутствие. Блок наследует учение Вл.&nbsp;Соловьёва
+                            о&nbsp;<em>Душе Мира</em>: возлюбленная&nbsp;— земное отражение небесного.
+                        </p>
+                    </div>
+
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <div class="example-quote">«А&nbsp;в&nbsp;лицо мне глядит, озарённый, / Только образ, лишь сон о&nbsp;Ней»</div>
+                            <div class="example-analysis">
+                                <span class="device">градация · оксюморон</span>
+                                Не&nbsp;Она сама, а&nbsp;<em>образ</em>; не&nbsp;образ, а&nbsp;<em>сон</em>.
+                                Героиня тает на&nbsp;глазах: символист отказывается от&nbsp;конкретики
+                                ради <em>намёка</em>.
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-quote">«Величавой Вечной Жены»</div>
+                            <div class="example-analysis">
+                                <span class="device">эпитеты · аллитерация</span>
+                                Тройное <em>«в-в-в»</em> создаёт торжественное звучание.
+                                Эпитеты <em>«Величавой», «Вечной»</em> возводят героиню в&nbsp;ранг
+                                вневременной сущности.
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-quote">«Мне не&nbsp;слышны ни&nbsp;вздохи, ни&nbsp;речи, / Но&nbsp;я&nbsp;верю: Милая&nbsp;— Ты»</div>
+                            <div class="example-analysis">
+                                <span class="device">антитеза · вера vs.&nbsp;знание</span>
+                                Героиня недоступна чувствам&nbsp;— но&nbsp;герой <em>верит</em>.
+                                Любовь приравнивается к&nbsp;религиозной вере: она&nbsp;не&nbsp;требует
+                                доказательств.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 7 — АРГУМЕНТ 3 ==================== -->
+        <section class="slide slide-argument" data-slide="7">
+            <div class="slide-inner">
+                <header class="slide-header">
+                    <span class="slide-number">07</span>
+                    <span class="argument-tag">Аргумент&nbsp;III</span>
+                    <h2 class="slide-title">Антитеза тьмы и&nbsp;света</h2>
+                    <span class="slide-subtitle">контраст как&nbsp;путь от&nbsp;земного к&nbsp;небесному</span>
+                </header>
+
+                <div class="argument-body">
+                    <div class="argument-thesis">
+                        <p>
+                            Композиция стихотворения движется от&nbsp;<strong>сумрака храма</strong>
+                            к&nbsp;<strong>сиянию свечей</strong>. Этот свето-цветовой контраст
+                            становится метафорой пути души&nbsp;— от&nbsp;тоски одиночества
+                            к&nbsp;откровению любви.
+                        </p>
+                    </div>
+
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <div class="example-quote">«Вхожу я&nbsp;в&nbsp;тёмные храмы… / В&nbsp;мерцаньи красных лампад»</div>
+                            <div class="example-analysis">
+                                <span class="device">цветопись · эпитет</span>
+                                <em>«Тёмные»</em> и&nbsp;<em>«красные»</em>&nbsp;— первые краски.
+                                Тьма&nbsp;— одиночество души; красное мерцание&nbsp;— надежда,
+                                кровь сердца, отблеск иконных лампад.
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-quote">«В&nbsp;тени у&nbsp;высокой колонны / Дрожу от&nbsp;скрипа дверей»</div>
+                            <div class="example-analysis">
+                                <span class="device">психологический параллелизм</span>
+                                <em>Тень</em> снаружи&nbsp;— и&nbsp;<em>дрожь</em> внутри.
+                                Скрип дверей&nbsp;— звук обычный, но&nbsp;для героя
+                                наполнен трепетом ожидания чуда.
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <div class="example-quote">«…озарённый, / Только образ»&nbsp;— «как&nbsp;ласковы свечи»</div>
+                            <div class="example-analysis">
+                                <span class="device">антитеза · кольцевая композиция</span>
+                                Стихотворение начинается тьмой и&nbsp;завершается светом.
+                                Это <em>путь</em>: от&nbsp;сомнения&nbsp;— к&nbsp;вере,
+                                от&nbsp;одиночества&nbsp;— к&nbsp;встрече.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 8 — ЗАКЛЮЧЕНИЕ ==================== -->
+        <section class="slide slide-conclusion" data-slide="8">
+            <div class="slide-inner">
+                <header class="slide-header">
+                    <span class="slide-number">08</span>
+                    <h2 class="slide-title">Заключение</h2>
+                    <span class="slide-subtitle">итоги анализа</span>
+                </header>
+
+                <div class="conclusion-block">
+                    <p class="conclusion-lead">
+                        Стихотворение «Вхожу я&nbsp;в&nbsp;тёмные храмы…»&nbsp;—
+                        <span class="accent">манифест раннего Блока-символиста</span>.
+                        Все три рассмотренных приёма работают на&nbsp;одну цель:
+                    </p>
+
+                    <div class="conclusion-circle">
+                        <div class="circle-center">
+                            <span>идея</span>
+                            <strong>Любовь&nbsp;= Молитва</strong>
+                        </div>
+                        <div class="circle-petal petal-1">
+                            <span class="petal-num">I</span>
+                            <span>религиозная<br/>лексика</span>
+                        </div>
+                        <div class="circle-petal petal-2">
+                            <span class="petal-num">II</span>
+                            <span>символ<br/>Вечной Жены</span>
+                        </div>
+                        <div class="circle-petal petal-3">
+                            <span class="petal-num">III</span>
+                            <span>антитеза<br/>тьмы и&nbsp;света</span>
+                        </div>
+                    </div>
+
+                    <p class="conclusion-final">
+                        Блок не&nbsp;описывает чувство&nbsp;— он&nbsp;<strong>преображает его</strong>.
+                        Возлюбленная становится иконой, признание в&nbsp;любви&nbsp;— молитвой,
+                        а&nbsp;жизнь поэта&nbsp;— рыцарским служением идеалу. Так начинается
+                        главный путь русского символизма&nbsp;— от&nbsp;земного
+                        к&nbsp;<em>несказанному</em>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 9 — ВЫРАЗИТЕЛЬНОЕ ЧТЕНИЕ ==================== -->
+        <section class="slide slide-recitation" data-slide="9">
+            <div class="slide-inner">
+                <header class="slide-header">
+                    <span class="slide-number">09</span>
+                    <h2 class="slide-title">Выразительное чтение</h2>
+                    <span class="slide-subtitle">подсказки для&nbsp;чтения наизусть</span>
+                </header>
+
+                <div class="recitation-grid">
+                    <div class="rec-card">
+                        <div class="rec-num">01</div>
+                        <h3>Темп</h3>
+                        <p>
+                            Замедленный, торжественный. Это <em>молитва</em>, а&nbsp;не&nbsp;беседа.
+                            Между строфами&nbsp;— длинная пауза, как&nbsp;вздох.
+                        </p>
+                    </div>
+
+                    <div class="rec-card">
+                        <div class="rec-num">02</div>
+                        <h3>Интонация</h3>
+                        <p>
+                            Тихая, доверительная в&nbsp;1—2 строфах; восторженная,
+                            но&nbsp;сдержанная&nbsp;— в&nbsp;3—4. Восклицания
+                            (<em>«О, я&nbsp;привык…», «О, Святая»</em>) звучат как&nbsp;шёпот, а&nbsp;не&nbsp;крик.
+                        </p>
+                    </div>
+
+                    <div class="rec-card">
+                        <div class="rec-num">03</div>
+                        <h3>Логические ударения</h3>
+                        <p>
+                            Выделяй ключевые символы: <em>тёмные</em>, <em>Прекрасной</em>,
+                            <em>Вечной Жены</em>, <em>Святая</em>, <em>Милая</em>, <em>Ты</em>.
+                            На&nbsp;местоимении <em>«Ты»</em>&nbsp;— главная пауза.
+                        </p>
+                    </div>
+
+                    <div class="rec-card">
+                        <div class="rec-num">04</div>
+                        <h3>Дыхание и&nbsp;пауза</h3>
+                        <p>
+                            Дыши строфой. Цезуру держи на&nbsp;запятой. Финальная строка
+                            <em>«Но&nbsp;я&nbsp;верю: Милая&nbsp;— Ты»</em>&nbsp;— на&nbsp;затихающем выдохе,
+                            почти про&nbsp;себя.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="recitation-tip">
+                    <span class="tip-mark">✦</span>
+                    Представь, что&nbsp;стоишь в&nbsp;тёмном соборе и&nbsp;ждёшь самого важного человека
+                    в&nbsp;своей жизни. Тогда стихотворение прочтётся само.
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== СЛАЙД 10 — СОБСТВЕННОЕ СТИХОТВОРЕНИЕ ==================== -->
+        <section class="slide slide-own-poem" data-slide="10">
+            <div class="slide-inner">
+                <header class="slide-header centered">
+                    <span class="slide-number">10</span>
+                    <h2 class="slide-title">Стихотворение собственного сочинения</h2>
+                    <span class="slide-subtitle">в&nbsp;духе цикла «Стихи о&nbsp;Прекрасной Даме»</span>
+                </header>
+
+                <div class="own-frame">
+                    <div class="poem-corner tl"></div>
+                    <div class="poem-corner tr"></div>
+                    <div class="poem-corner bl"></div>
+                    <div class="poem-corner br"></div>
+
+                    <p class="own-dedication">Посвящается&nbsp;Ей</p>
+
+                    <div class="own-poem-text" id="ownPoemText" contenteditable="true" spellcheck="false">
+<span class="own-line">Здесь будет первая строка…</span>
+<span class="own-line">Здесь будет вторая строка…</span>
+<span class="own-line">Здесь будет третья строка…</span>
+<span class="own-line">Здесь будет четвёртая строка…</span>
+
+<span class="own-line">Здесь будет пятая строка…</span>
+<span class="own-line">Здесь будет шестая строка…</span>
+<span class="own-line">Здесь будет седьмая строка…</span>
+<span class="own-line">Здесь будет восьмая строка…</span>
+
+<span class="own-line">…добавь ещё 2—4 строки, чтобы получилось 8—12.</span>
+                    </div>
+
+                    <p class="own-author-line">
+                        <span class="own-author-rule"></span>
+                        <span class="own-author-name">Автор</span>
+                        <span class="own-author-rule"></span>
+                    </p>
+                </div>
+
+                <p class="own-hint">
+                    ✎&nbsp; Кликни по&nbsp;тексту и&nbsp;замени строки на&nbsp;собственные.
+                    Опирайся на&nbsp;идею Блока: возлюбленная&nbsp;— икона, любовь&nbsp;— молитва,
+                    свет вытесняет тьму.
+                </p>
+
+                <div class="end-ornament">
+                    <svg viewBox="0 0 200 30" preserveAspectRatio="none">
+                        <path d="M0,15 L70,15" stroke="currentColor" stroke-width="0.5" fill="none"/>
+                        <path d="M130,15 L200,15" stroke="currentColor" stroke-width="0.5" fill="none"/>
+                        <text x="100" y="20" text-anchor="middle" font-family="serif" font-size="14" fill="currentColor">FIN</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
